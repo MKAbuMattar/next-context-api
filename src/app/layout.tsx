@@ -6,6 +6,9 @@ import {Inter} from 'next/font/google';
 
 const inter = Inter({subsets: ['latin']});
 
+// Context API
+import {Provider} from '@/provider/use-provider';
+
 export const metadata: Metadata = {
   title: 'Next.js Context API',
   description: 'Next.js Context API example with TypeScript to manage state.',
@@ -18,7 +21,9 @@ type RootLayoutProps = {
 export default function RootLayout({children}: RootLayoutProps) {
   return (
     <html lang={'en'}>
-      <body className={inter.className}>{children}</body>
+      <Provider>
+        <body className={inter.className}>{children}</body>
+      </Provider>
     </html>
   );
 }
